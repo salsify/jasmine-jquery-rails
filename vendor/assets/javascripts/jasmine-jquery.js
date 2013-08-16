@@ -532,7 +532,7 @@ jasmine.JQuery.matchersClass = {}
   }
 
   var bindMatcher = function(methodName) {
-    var builtInMatcher = jasmine.Matchers.prototype[methodName]
+    var builtInMatcher = jasmine.matchers.prototype[methodName]
 
     jasmine.JQuery.matchersClass[methodName] = function() {
       if (this.actual
