@@ -560,8 +560,8 @@ jasmine.JQuery.matchersClass = {}
 }()
 
 beforeEach(function() {
-  this.addMatchers(jasmine.JQuery.matchersClass)
-  this.addMatchers({
+  jasmine.Expectation.addMatchers(jasmine.JQuery.matchersClass)
+  jasmine.Expectation.addMatchers({
     toHaveBeenTriggeredOn: function(selector) {
       this.message = function() {
         return [
@@ -572,7 +572,7 @@ beforeEach(function() {
       return jasmine.JQuery.events.wasTriggered(selector, this.actual)
     }
   })
-  this.addMatchers({
+  jasmine.Expectation.addMatchers({
     toHaveBeenTriggered: function(){
       var eventName = this.actual.eventName,
           selector = this.actual.selector
@@ -585,7 +585,7 @@ beforeEach(function() {
       return jasmine.JQuery.events.wasTriggered(selector, eventName)
      }
   })
-  this.addMatchers({
+  jasmine.Expectation.addMatchers({
     toHaveBeenTriggeredOnAndWith: function() {
       var selector = arguments[0],
           expectedArgs = arguments[1],
@@ -607,7 +607,7 @@ beforeEach(function() {
       return wasTriggered && jasmine.JQuery.events.wasTriggeredWith(selector, this.actual, expectedArgs, this.env);
     }
   })
-  this.addMatchers({
+  jasmine.Expectation.addMatchers({
     toHaveBeenPreventedOn: function(selector) {
       this.message = function() {
         return [
@@ -618,7 +618,7 @@ beforeEach(function() {
       return jasmine.JQuery.events.wasPrevented(selector, this.actual)
     }
   })
-  this.addMatchers({
+  jasmine.Expectation.addMatchers({
     toHaveBeenPrevented: function() {
       var eventName = this.actual.eventName,
           selector = this.actual.selector
@@ -631,7 +631,7 @@ beforeEach(function() {
       return jasmine.JQuery.events.wasPrevented(selector, eventName)
     }
   })
-  this.addMatchers({
+  jasmine.Expectation.addMatchers({
     toHaveBeenStoppedOn: function(selector) {
       this.message = function() {
         return [
@@ -642,7 +642,7 @@ beforeEach(function() {
       return jasmine.JQuery.events.wasStopped(selector, this.actual)
     }
   })
-  this.addMatchers({
+  jasmine.Expectation.addMatchers({
     toHaveBeenStopped: function() {
       var eventName = this.actual.eventName,
           selector = this.actual.selector
